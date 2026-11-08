@@ -6,6 +6,7 @@
 --navbar:#91AED9;
 --footer:#91AED9;
 }
+/* start of nav bar */
 nav{
    display: flex;
    align-items: center;
@@ -30,3 +31,4 @@ font-size:2.5rem;
 color:white;
 
 }
+/* end of nav bar */
