@@ -3,11 +3,15 @@
 --hero:#768DB0;
 --footer:#768DB0;
 --background:#FFFDF7;
+--navbar:#91AED9;
+--footer:#91AED9;
 }
 nav{
    display: flex;
    align-items: center;
    justify-content: space-between; 
+   background-color: var(--navbar);
+    padding: 2rem 2rem;
 }
 .menu{
 display: flex;
@@ -16,5 +20,8 @@ text-align: center;
 justify-content: center;
 gap:1.5rem;
 }
-
+.menu-item a{
+text-decoration: none;
+color:white;
+}
 
