@@ -4,3 +4,17 @@
 --footer:#768DB0;
 --background:#FFFDF7;
 }
+nav{
+   display: flex;
+   align-items: center;
+   justify-content: space-between; 
+}
+.menu{
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+gap:1.5rem;
+}
+
+
