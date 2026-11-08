@@ -53,4 +53,22 @@ flex-direction: column;
 
 }
 
-/* end of reposive nav bar */
+/* end of responsive nav bar */
+/* start of hero section */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.hero-wrapper{
+    display: flex;
+    gap:20rem;
+}
+.hero-content{
+align-self: center;
+
+}
+/* end of hero section */
