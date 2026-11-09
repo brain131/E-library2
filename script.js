@@ -35,7 +35,24 @@ document.getElementById("books-container").addEventListener("click",function(eve
 
 
 
-})
+});
+//delete button
+document.getElementById("saved-container").addEventListener("click", function(event) {
+
+    const button = event.target.closest(".delete-button");
+
+    if (!button) {
+        return;
+    }
+
+    deleteNovel(button.dataset.id);
+});
+
+
+
+
+
+
 
 function discoverBooks(inputValue){
 
