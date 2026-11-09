@@ -142,14 +142,42 @@
 
 <!-- end of main page section -->
 <!-- start of discover section -->
-<div class="container">
-    <h2>Discover New Books</h2>
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Discover new  books">
-        <button id="search-button">Search</button>
-    </div>
-    <div id="books-container"></div>
-</div>
+ <main class="container">
+        <header class="page-header">
+            <h1>Discover Free E-Books</h1>
+            <p>Search Google Books and keep a personal shelf of novels on this device.</p>
+        </header>
+
+        <section class="search-section">
+            <h2>Find Your Books</h2>
+
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search books by title or author..."
+                >
+                <button id="search-button" type="button">Search Books</button>
+            </div>
+        </section>
+
+        <section class="books-section">
+            <h2>Available Books</h2>
+
+            <div id="books-container">
+                <p class="empty-message">Search for a title or author to see books.</p>
+            </div>
+        </section>
+
+        <section class="saved-section">
+            <div class="section-heading">
+                <h2>Saved Novels</h2>
+                <p id="saved-count">0 saved</p>
+            </div>
+
+            <div id="saved-container" aria-live="polite"></div>
+        </section>
+    </main>
 
 
 <!-- end of discover section -->
