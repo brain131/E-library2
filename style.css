@@ -169,6 +169,7 @@ font-size: 1.2em;
 }
 
 /* end of discover section */
+/* start of footer */
 .footer-wrapper{
 display: flex;
 justify-content: center;
@@ -185,3 +186,4 @@ flex-direction: column;
     text-decoration: none;
     color:white;
 }
+/* end of footer */
