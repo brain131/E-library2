@@ -103,6 +103,8 @@ border-radius: 20px;
 display: flex;
 flex-wrap: wrap;
 gap:2rem;
+align-items: center;
+justify-content: center;
 }
 .image-wrapper{
 width:300px;
