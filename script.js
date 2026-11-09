@@ -101,8 +101,47 @@ const saleStatus = book.saleInfo?.saleability;
         const pdfLink = book.accessInfo?.pdf?.acsTokenLink;
         const previewLink = book.volumeInfo.previewLink;
         const readLink = safeUrl(pdfLink || previewLink);
+bookDiv.innerHTML = `
+
+            <img src="${escapeHtml(novel.coverUrl)}"
+                 alt="${escapeHtml(title)}">
+
+            <h3>${escapeHtml(title)}</h3>
+
+            <p>By ${escapeHtml(authors)}</p>
+
+            <p class="availability">
+                Availability: <strong>${escapeHtml(availability)}</strong>
+            </p>
+
+            <div class="book-actions">
+
+                ${readLink ? `
+                    <a class="read-link"
+                       href="${escapeHtml(readLink)}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       Read Book
+                    </a>
+                ` : `
+                    <p>Reading link not available</p>
+                `}
+
+                <button
+                    type="button"
+                    class="save-button"
+                    data-id="${escapeHtml(novel.id)}"
+                    ${alreadySaved ? "disabled" : ""}
+                >
+                    ${alreadySaved ? "Saved" : "Save Novel"}
+                </button>
+
+            </div>
+        `;
+
+        container.appendChild(bookDiv);
 
 
-        
+
 });
 }
