@@ -48,11 +48,7 @@ document.getElementById("saved-container").addEventListener("click", function(ev
     deleteNovel(button.dataset.id);
 });
 
-
-
-
-
-
+renderSavedNovels();
 
 function discoverBooks(inputValue){
 
@@ -60,10 +56,17 @@ function discoverBooks(inputValue){
 
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(inputValue)}&maxResults=16&printType=books&key=${apiKey}`)
 .then(response=>response.json())
-.then(data =>{
-    displayBooks(data.docs);
 
-})
+ .then(data => {
+
+        if (data.items && data.items.length > 0) {
+            displayBooks(data.items);
+        } else {
+            document.getElementById("books-container").innerHTML =
+                '<p class="empty-message">No books found</p>';
+        }
+
+    })
 .catch(error=>{
     console.log('error fetching data',error);
 });
@@ -74,14 +77,32 @@ container.innerHTML='';
 books.slice(0,16).forEach(book => {
 const bookDiv=document.createElement('div');
 bookDiv.className='book';
-const coverId=book.cover_i ? book.cover_i :null;
-const coverUrl=coverId
-            ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`
-            : 'https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk=';
+const title = book.volumeInfo.title || "Unknown Title";
 
-bookDiv.innerHTML=`<img src="${coverUrl}" alt="${book.title}">
-<h3>${book.title}</h3><p>by ${book.author_name ? book.author_name.join(','):'Unknown Author'}</p>`;
-container.appendChild(bookDiv);
+        const authors = book.volumeInfo.authors
+            ? book.volumeInfo.authors.join(", ")
+            : "Unknown Author";
 
+        const coverUrl = book.volumeInfo.imageLinks
+            ? book.volumeInfo.imageLinks.thumbnail.replace("http://", "https://")
+            : "https://placehold.co/150x200?text=No+Cover";
+
+const saleStatus = book.saleInfo?.saleability;
+
+        let availability;
+
+        if (saleStatus === "FREE") {
+            availability = "Free";
+        } else if (saleStatus === "FOR_SALE") {
+            availability = "Paid";
+        } else {
+            availability = "Preview / Not for sale";
+        }
+        const pdfLink = book.accessInfo?.pdf?.acsTokenLink;
+        const previewLink = book.volumeInfo.previewLink;
+        const readLink = safeUrl(pdfLink || previewLink);
+
+
+        
 });
 }
