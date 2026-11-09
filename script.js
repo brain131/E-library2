@@ -159,3 +159,22 @@ function getSavedNovels() {
     }
 
 }
+function isNovelSaved(id) {
+
+    const saved = getSavedNovels();
+
+    return saved.some(novel => novel.id === id);
+
+}
+function saveNovel(novel){
+const saved=getSavedNovels();
+if(saved.some(item=>item.id ===novel.id)){
+    return;
+}
+saved.push(novel);
+setSavedNovels(saved);
+renderSaveNovels();
+}
+
+
+
