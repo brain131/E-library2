@@ -112,4 +112,16 @@ height:500px;
     width: 100%;
     height: 100%;
 }
+
 /* end of main section design */
+/* start of responsive main section */
+@media (max-width:800px){
+.books-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+}
+/* end of responsive main section */
