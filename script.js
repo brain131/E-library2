@@ -205,5 +205,20 @@ function deleteNovel(id) {
     }
 
 }
+function renderSavedNovels(){
+const container=document.getElementById("saved-container");
+const count=document.getElementById("saved-count");
+const saved=getSavedNovels();
+count.textContent=saved.length ===1
+  ? "1 saved"
+        : `${saved.length} saved`;
+    container.innerHTML = "";
+if(saved.length ===0){
+container.innerHTML=`<p class="empty-message">No saved novels yet. Save a book from your search results.</p>`
 
+return;
+}
+
+
+}
 
