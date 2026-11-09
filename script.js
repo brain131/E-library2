@@ -1,3 +1,7 @@
+
+const STORAGE_KEY = "savedNovels";
+const searchResults = new Map();
+
 document.getElementById("search-button").addEventListener('click',function(){
 const inputValue=document.getElementById("search-input").value;
 discoverBooks(inputValue);
@@ -9,8 +13,35 @@ if(event.key ==='Enter'){
     discoverBooks(inputValue);
 }
 });
+//save book button
+document.getElementById("books-container").addEventListener("click",function(event){
+
+ const button = event.target.closest(".save-button");
+
+    if (!button || button.disabled) {
+        return;
+    }
+
+    const novel = searchResults.get(button.dataset.id);
+
+    if (!novel) {
+        return;
+    }
+
+    saveNovel(novel);
+
+    button.textContent = "Saved";
+    button.disabled = true;
+
+
+
+})
+
 function discoverBooks(inputValue){
-    fetch(`https://openlibrary.org/search.json?q=${inputValue}`)
+
+     const apiKey = "AIzaSyAwvmOW7BOcaXWgABvGA8i6ZdplhQl4Pn8";
+
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(inputValue)}&maxResults=16&printType=books&key=${apiKey}`)
 .then(response=>response.json())
 .then(data =>{
     displayBooks(data.docs);
