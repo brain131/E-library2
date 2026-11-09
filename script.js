@@ -218,7 +218,47 @@ container.innerHTML=`<p class="empty-message">No saved novels yet. Save a book f
 
 return;
 }
+saved.forEach(novel =>{
+    const bookDiv=document.createElement("div");
+    bookDiv.className="book";
+    bookDiv.innerHTML=`  <img src="${escapeHtml(novel.coverUrl)}"
+                 alt="${escapeHtml(novel.title)}">
 
+            <h3>${escapeHtml(novel.title)}</h3>
+
+            <p>By ${escapeHtml(novel.authors)}</p>
+
+            <p class="availability">
+                Availability: <strong>${escapeHtml(novel.availability)}</strong>
+            </p>
+
+            <div class="book-actions">
+
+                ${novel.readLink ? `
+                    <a class="read-link"
+                       href="${escapeHtml(novel.readLink)}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       Read Book
+                    </a>
+                ` : `
+                    <p>Reading link not available</p>
+                `}
+
+                <button
+                    type="button"
+                    class="delete-button"
+                    data-id="${escapeHtml(novel.id)}">
+                    Remove Book
+                </button>
+
+            </div>`;
+            container.appendChild(bookDiv);
+})
 
 }
+
+
+
+
 
