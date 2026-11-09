@@ -1,5 +1,38 @@
+:root{
+--button-color:#3F4C5E;
+--hero:#768DB0;
+--footer:#768DB0;
+--background:#FFFDF7;
+--navbar:#91AED9;
+--footer:#91AED9;
+}
+
 /* start of form */
+form{
+    width: 400px;
+    align-items: center;
+    text-align: center;
+    
+}
+.form-wrapper{
+    background-color: var(--background);
+    padding: 60px;
+}
+input{
+    margin-bottom: 20px;
+    height:50px;
+    border-radius: 20px;
+    border:none;
 
+}
 
+button{
+padding:10px;
+background-color: var(--button-color);
+border: none;
+color: white;
+border-radius: 20px;
+padding: 12px;
 
+}
 /* end of form */
