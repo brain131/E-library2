@@ -140,8 +140,22 @@ bookDiv.innerHTML = `
         `;
 
         container.appendChild(bookDiv);
-
-
-
 });
+}
+function getSavedNovels() {
+
+    try {
+
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+        return Array.isArray(saved) ? saved : [];
+
+    } catch (error) {
+
+        console.log("Error reading saved novels", error);
+
+        return [];
+
+    }
+
 }
