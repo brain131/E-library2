@@ -131,3 +131,25 @@ border-radius: 20px;
 
 }
 /* end of responsive main section */
+/* start of discover section */
+.search-container{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.container >h2{
+text-align: center;
+
+}
+.search-container >button{
+    background-color: var(--button-color);
+    color:white;
+    padding:12px;
+    border: none;
+}
+.search-container >input{
+    padding: 10px;
+
+}
+/* end of discover section */
