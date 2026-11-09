@@ -159,6 +159,11 @@ function getSavedNovels() {
     }
 
 }
+function setSavedNovels(novels) {
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(novels));
+
+}
 function isNovelSaved(id) {
 
     const saved = getSavedNovels();
@@ -173,8 +178,32 @@ if(saved.some(item=>item.id ===novel.id)){
 }
 saved.push(novel);
 setSavedNovels(saved);
-renderSaveNovels();
+renderSavedNovels();
 }
+function deleteNovel(id) {
 
+    const saved = getSavedNovels();
+
+
+    const updatedBooks = saved.filter(novel => novel.id !== id);
+
+    setSavedNovels(updatedBooks);
+
+    renderSavedNovels();
+
+    
+    const saveButton = document.querySelector(
+        `.save-button[data-id="${CSS.escape(id)}"]`
+    );
+
+    if (saveButton) {
+
+        saveButton.textContent = "Save Novel";
+
+        saveButton.disabled = false;
+
+    }
+
+}
 
 
