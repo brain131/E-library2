@@ -2,7 +2,7 @@
 --button-color:#3F4C5E;
 --hero:#768DB0;
 --footer:#768DB0;
---navbar:#91AED9;
+--navbar:#ffffff;
 --footer:#91AED9;
 }
 body{
@@ -16,6 +16,9 @@ nav{
    justify-content: space-between; 
    background-color: var(--navbar);
     padding: 2rem 2rem;
+    position: sticky;
+    top:0;
+   
 }
 .menu{
 display: flex;
@@ -28,10 +31,11 @@ gap:1.5rem;
 text-decoration: none;
 color:white;
 font-size: 1.3rem;
+color: black;
 }
 .logo{
 font-size:2.5rem;
-color:white;
+color:black;
 
 }
 /* end of nav bar */
@@ -61,7 +65,7 @@ flex-direction: column;
 .hero{
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top:0px;
     align-items: center;
     text-align: center;
     justify-content: center;
