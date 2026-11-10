@@ -82,7 +82,7 @@ flex-direction: column;
     text-align: center;
     justify-content: center;
     color: white;
-    background-image:url(img/library\ vibes.jpeg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(img/library\ vibes.jpeg);
     height:600px;
 }
 .hero-wrapper{
