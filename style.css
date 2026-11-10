@@ -10,6 +10,17 @@ body{
 }
 
 /* start of nav bar */
+.nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+}
+.nav-logo > i{
+font-size: 30px;
+color:#2c5364;
+
+}
 nav{
    display: flex;
    align-items: center;
