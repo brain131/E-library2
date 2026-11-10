@@ -1,6 +1,8 @@
 body{
     background: white;
     background-image: url(img/Want\ to\ go\ to\ library_.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* start of nav bar */
