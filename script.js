@@ -3,13 +3,13 @@ const STORAGE_KEY = "savedNovels";
 const searchResults = new Map();
 
 document.getElementById("search-button").addEventListener('click',function(){
-const inputValue=document.getElementById("search-input").value;
+const inputValue=document.getElementById("search-input").value.trim();
 discoverBooks(inputValue);
 
 });
 document.getElementById("search-input").addEventListener('keypress',function(event){
-if(event.key ==='Enter'){
-    const inputValue=document.getElementById("search-input").value;
+if(event.key ==="Enter"){
+    const inputValue=document.getElementById("search-input").value.trim();
     discoverBooks(inputValue);
 }
 });
@@ -73,10 +73,13 @@ function discoverBooks(inputValue){
 }
 function displayBooks(books){
 const container=document.getElementById('books-container');
-container.innerHTML='';
+
+container.innerHTML="";
+searchResults.clear();
+
 books.slice(0,16).forEach(book => {
 const bookDiv=document.createElement('div');
-bookDiv.className='book';
+bookDiv.className="book";
 const title = book.volumeInfo.title || "Unknown Title";
 
         const authors = book.volumeInfo.authors
@@ -101,6 +104,17 @@ const saleStatus = book.saleInfo?.saleability;
         const pdfLink = book.accessInfo?.pdf?.acsTokenLink;
         const previewLink = book.volumeInfo.previewLink;
         const readLink = safeUrl(pdfLink || previewLink);
+
+        const novel = {
+            id: book.id || `${title}-${authors}`,
+            title,
+            authors,
+            coverUrl: safeUrl(coverUrl) || "https://placehold.co/150x200?text=No+Cover",
+            availability,
+            readLink
+        };
+searchResults.set(novel.id,novel);
+const alreadySaved=isNovelSaved(novel.id);
 bookDiv.innerHTML = `
 
             <img src="${escapeHtml(novel.coverUrl)}"
@@ -257,7 +271,39 @@ saved.forEach(novel =>{
 })
 
 }
+function escapeHtml(value){
+return String(value)
 
+    .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+}
+function safeUrl(url) {
+
+    if (!url) {
+        return "";
+    }
+
+    try {
+
+        const parsed = new URL(url);
+
+        if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+            return parsed.href;
+        }
+
+    } catch (error) {
+
+        return "";
+
+    }
+
+    return "";
+
+}
 
 
 
