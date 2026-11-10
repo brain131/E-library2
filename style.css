@@ -13,11 +13,12 @@ body{
 nav{
    display: flex;
    align-items: center;
-   justify-content: space-between; 
+justify-content: center;
    background-color: var(--navbar);
     padding: 2rem 2rem;
     position: sticky;
     top:0;
+    gap:5rem;
    
 }
 .menu{
