@@ -329,6 +329,9 @@ flex-direction: column;
 
 /* end of discover section */
 /* start of footer */
+footer{
+    margin-top: 20px;
+}
 .footer-wrapper{
 display: flex;
 justify-content: center;
