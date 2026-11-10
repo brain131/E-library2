@@ -107,3 +107,24 @@ align-items: center;
 margin-top: 20%;
 
 }
+/* start of footer */
+footer{
+    margin-top: 20px;
+}
+.footer-wrapper{
+display: flex;
+justify-content: center;
+gap:5rem;
+background-color: #768DB0;
+color:white;
+}
+.links{
+display: flex;
+flex-direction: column;
+
+}
+.links a{
+    text-decoration: none;
+    color:white;
+}
+/* end of footer */
