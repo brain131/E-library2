@@ -87,6 +87,14 @@ height:50px;
 
 
 }
+button{
+    color: white;
+    border:none;
+    background-color: black;
+    padding: 10px;
+    width: 100px;
+    border-radius: 15px;
+}
 .contact-section{
 display: flex;
 justify-content: center;
