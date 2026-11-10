@@ -35,7 +35,7 @@
     <div class="hero-wrapper">
         <div class="hero-content">
 <div class="content">
-            <h2>Idea exchange library</h2>
+            <h2>E-Library</h2>
             <h1>For all Your Reading Needs</h1>
             <p>Books are just the beginning. The Idea Exchange is a dynamic hub <br>designed to fuel your curiosity, spark fresh conversations, and <br>turn pages into possibilities. </p>
         </div>
@@ -47,6 +47,47 @@
     </div>
 </section>
 <!-- end of hero section -->
+ <!-- start of discover section -->
+ <main class="container">
+        <header class="page-header">
+            <h1>Discover Free E-Books</h1>
+            <p>Search Google Books and keep a personal shelf of novels on this device.</p>
+        </header>
+
+        <section class="search-section">
+            <h2>Find Your Books</h2>
+
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search books by title or author..."
+                >
+                <button id="search-button" type="button">Search Books</button>
+            </div>
+        </section>
+
+        <section class="books-section">
+            <h2>Available Books</h2>
+
+            <div id="books-container">
+                <p class="empty-message">Search for a title or author to see books.</p>
+            </div>
+        </section>
+
+        <section class="saved-section">
+            <div class="section-heading">
+                <h2>Saved Novels</h2>
+                <p id="saved-count">0 saved</p>
+            </div>
+
+            <div id="saved-container" aria-live="polite"></div>
+        </section>
+    </main>
+ <script src="script.js"></script>
+
+
+<!-- end of discover section -->
  <!-- start of main page section -->
 <main>
     <h2>Available Books</h2>
@@ -137,47 +178,7 @@
 </main>
 
 <!-- end of main page section -->
-<!-- start of discover section -->
- <main class="container">
-        <header class="page-header">
-            <h1>Discover Free E-Books</h1>
-            <p>Search Google Books and keep a personal shelf of novels on this device.</p>
-        </header>
 
-        <section class="search-section">
-            <h2>Find Your Books</h2>
-
-            <div class="search-container">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search books by title or author..."
-                >
-                <button id="search-button" type="button">Search Books</button>
-            </div>
-        </section>
-
-        <section class="books-section">
-            <h2>Available Books</h2>
-
-            <div id="books-container">
-                <p class="empty-message">Search for a title or author to see books.</p>
-            </div>
-        </section>
-
-        <section class="saved-section">
-            <div class="section-heading">
-                <h2>Saved Novels</h2>
-                <p id="saved-count">0 saved</p>
-            </div>
-
-            <div id="saved-container" aria-live="polite"></div>
-        </section>
-    </main>
- <script src="script.js"></script>
-
-
-<!-- end of discover section -->
 <footer>
     <div class="footer-wrapper">
         <div class="footer-card">
