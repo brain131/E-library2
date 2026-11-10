@@ -1,7 +1,7 @@
 :root{
 --button-color:#ff5e78;
 --hero:#768DB0;
---footer:#768DB0;
+--footer:#000000;
 --navbar:#ffffff;
 --footer:#91AED9;
 }
@@ -152,10 +152,13 @@ height:400px;
 }
  .books-card >a{
 text-decoration: none;
-color:white;
+color:black;
 background-color: var(--button-color);
 padding:10px;
 border-radius: 20px;
+font-weight: 900;
+
+
  }
  .books-card a:hover{
 background-color: #f04360;
