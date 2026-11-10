@@ -146,6 +146,10 @@ background-color: var(--button-color);
 padding:10px;
 border-radius: 20px;
  }
+ .books-card a:hover{
+background-color: #f04360;
+
+ }
 /* end of main section design */
 /* start of responsive main section */
 @media (max-width:800px){
