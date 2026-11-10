@@ -2,6 +2,68 @@ body{
     background: white;
     background-image: url(img/Want\ to\ go\ to\ library_.jpeg);
 }
+
+/* start of nav bar */
+nav{
+   display: flex;
+   align-items: center;
+justify-content: center;
+   background-color:white;
+    padding: 2rem 2rem;
+    position: sticky;
+    top:0;
+    gap:5rem;
+   
+}
+.menu{
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+gap:1.5rem;
+}
+.menu-item a{
+text-decoration: none;
+color:white;
+font-size: 1.3rem;
+color: black;
+}
+.logo{
+font-size:2.5rem;
+color:black;
+
+}
+/* end of nav bar */
+/* start of responsive nav bar */
+@media (max-width:700px){
+.logo{
+    text-align: center;
+}
+nav{
+display: flex;
+flex-direction: column;
+
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+}
+
+/* end of responsive nav bar */
+
+
+
+
+
+
+
+
 form{
     background-color: white;
     width:300px;
@@ -20,5 +82,15 @@ height:50px;
 border-radius: 15px;
 
 }
+textarea{
+height:50px;
 
 
+}
+.contact-section{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20%;
+
+}
