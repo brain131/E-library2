@@ -16,13 +16,13 @@ if(event.key ==="Enter"){
 //save book button
 document.getElementById("books-container").addEventListener("click",function(event){
 
- const button = event.target.closest(".save-button");
-
+ const button = event.target.closest(".save-button");//event target identifies the element user clicked
+//save button looks for the nearest element with class save button
     if (!button || button.disabled) {
         return;
     }
 
-    const novel = searchResults.get(button.dataset.id);
+    const novel = searchResults.get(button.dataset.id);//retrieves book id stored on button
 
     if (!novel) {
         return;
@@ -30,8 +30,8 @@ document.getElementById("books-container").addEventListener("click",function(eve
 
     saveNovel(novel);
 
-    button.textContent = "Saved";
-    button.disabled = true;
+    button.textContent = "Saved";//changes the button text from save novel to saved
+    button.disabled = true;//disable save button
 
 
 
@@ -39,16 +39,17 @@ document.getElementById("books-container").addEventListener("click",function(eve
 //delete button
 document.getElementById("saved-container").addEventListener("click", function(event) {
 
-    const button = event.target.closest(".delete-button");
+    const button = event.target.closest(".delete-button");//finds the remove button book clicked
 
     if (!button) {
         return;
     }
 
-    deleteNovel(button.dataset.id);
+    deleteNovel(button.dataset.id); //get id of the selected book and send it to the deleteNovel function
 });
 
-renderSavedNovels();
+renderSavedNovels(); //javascript checks local storage and display saved books
+
 
 function discoverBooks(inputValue){
 
@@ -74,21 +75,21 @@ function discoverBooks(inputValue){
 function displayBooks(books){
 const container=document.getElementById('books-container');
 
-container.innerHTML="";
+container.innerHTML="";//clears the previous search results
 searchResults.clear();
 
-books.slice(0,16).forEach(book => {
+books.slice(0,16).forEach(book => {//0 star at first item 16 stop at last item
 const bookDiv=document.createElement('div');
-bookDiv.className="book";
-const title = book.volumeInfo.title || "Unknown Title";
+bookDiv.className="book";//gives div class name book
+const title = book.volumeInfo.title || "Unknown Title";//if title is missing it becomes unknown title
 
-        const authors = book.volumeInfo.authors
-            ? book.volumeInfo.authors.join(", ")
-            : "Unknown Author";
+        const authors = book.volumeInfo.authors||
+        
+             "Unknown Author";
 
-        const coverUrl = book.volumeInfo.imageLinks
-            ? book.volumeInfo.imageLinks.thumbnail.replace("http://", "https://")
-            : "https://placehold.co/150x200?text=No+Cover";
+        const coverUrl = book.volumeInfo.imageLinks//gets the book cover image
+            ? book.volumeInfo.imageLinks.thumbnail.replace("http://", "https://")//replace http with https to secure image link
+            : "https://placehold.co/150x200?text=No+Cover";//if no image replace placeholder image
 
 const saleStatus = book.saleInfo?.saleability;
 
@@ -106,7 +107,7 @@ const saleStatus = book.saleInfo?.saleability;
         const readLink = safeUrl(pdfLink || previewLink);
 
         const novel = {
-            id: book.id || `${title}-${authors}`,
+            id: book.id || `${title}-${authors}`,//get id provided by google or creates id by title or author
             title,
             authors,
             coverUrl: safeUrl(coverUrl) || "https://placehold.co/150x200?text=No+Cover",
@@ -271,8 +272,8 @@ saved.forEach(novel =>{
 })
 
 }
-function escapeHtml(value){
-return String(value)
+function escapeHtml(value){//value information to make safe
+return String(value)//converts value into a string
 
     .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -281,7 +282,7 @@ return String(value)
         .replace(/'/g, "&#39;");
 
 }
-function safeUrl(url) {
+function safeUrl(url) {//check if url is valid
 
     if (!url) {
         return "";
